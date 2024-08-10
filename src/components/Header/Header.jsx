@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+// Component Header
 import MobileNav from "../MobileNav/MobileNav";
 import WebNav from "../WebNav/WebNav";
 
@@ -9,7 +11,7 @@ const Header = () => {
       <div className="container mx-auto xl:flex xl:items-end xl:justify-between">
         {/* Logo */}
         <Link to={""}>
-          <h1 className="text-3xl">Duc Anh</h1>
+          <h1 className="text-4xl text-yellow-400">{'<DucAnh />'}</h1>
         </Link>
 
         {/* Mobile Nav */}
