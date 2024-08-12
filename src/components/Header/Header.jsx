@@ -13,20 +13,22 @@ const Header = () => {
         {/* Logo */}
         <Link to={""}>
           {/* Viết ký tự đặc biệt "<" thêm dấu {''} */}
-          <h1 className="text-4xl text-yellow-400">{'<DucAnh />'}</h1>
+          <h1 className="text-4xl text-yellow-400">{"<DucAnh />"}</h1>
         </Link>
 
-        {/* Mobile Nav */}
-        <div className="xl:hidden">
-          <MobileNav />
-        </div>
+        <div className="flex gap-8">
+          {/* Mobile Nav */}
+          <div className="xl:hidden">
+            <MobileNav />
+          </div>
 
-        {/* Web Nav */}
-        <div className="hidden xl:flex">
-          <WebNav />
-        </div>
+          {/* Web Nav */}
+          <div className="hidden xl:flex">
+            <WebNav />
+          </div>
 
-        <DarkModeBuuton />
+          <DarkModeBuuton />
+        </div>
       </div>
     </header>
   );

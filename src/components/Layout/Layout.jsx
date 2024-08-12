@@ -1,14 +1,14 @@
-import { Outlet } from "react-router-dom"
-import { Header } from "../Header"
+import { Outlet } from "react-router-dom";
+import { Header } from "../Header";
 
 const Layout = () => {
   return (
-    <div className="bg-amber-200 w-screen h-screen">
-        <Header />
+    <div className="bg-amber-100 w-screen h-screen">
+      <Header />
 
-        <Outlet />
+      <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
