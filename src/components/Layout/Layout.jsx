@@ -1,16 +1,13 @@
 import { Outlet } from "react-router-dom"
 import { Header } from "../Header"
-import { Footer } from "../Footer"
 
 const Layout = () => {
   return (
-    <>
+    <div className="bg-amber-200 w-screen h-screen">
         <Header />
 
         <Outlet />
-
-        <Footer />
-    </>
+    </div>
   )
 }
 

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // Component Header
 import MobileNav from "../MobileNav/MobileNav";
 import WebNav from "../WebNav/WebNav";
+import DarkModeBuuton from "../UI/DarkModeButton.jsx";
 
 const Header = () => {
   return (
@@ -11,6 +12,7 @@ const Header = () => {
       <div className="container mx-auto xl:flex xl:items-end xl:justify-between">
         {/* Logo */}
         <Link to={""}>
+          {/* Viết ký tự đặc biệt "<" thêm dấu {''} */}
           <h1 className="text-4xl text-yellow-400">{'<DucAnh />'}</h1>
         </Link>
 
@@ -23,6 +25,8 @@ const Header = () => {
         <div className="hidden xl:flex">
           <WebNav />
         </div>
+
+        <DarkModeBuuton />
       </div>
     </header>
   );
