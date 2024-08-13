@@ -1,8 +1,8 @@
 const nav = [
   { name: "Home", path: "home" },
-  { name: "Service", path: "service" },
-  { name: "Resume", path: "resume" },
-  { name: "Work", path: "work" },
+  { name: "Skills", path: "skills" },
+  { name: "Exp", path: "experience" },
+  { name: "Projects", path: "projects" },
   { name: "Contact", path: "contact" },
 ];
 

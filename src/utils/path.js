@@ -1,8 +1,8 @@
 const path = {
     HOME: "home",
-    SERVICE: "service",
-    RESUME: "resume",
-    WORK: "work",
+    SKILLS: "skills",
+    EXPERIENCE: "experience",
+    PROJECTS: "projects",
     CONTACT: "contact",
 }
 

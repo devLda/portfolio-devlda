@@ -5,7 +5,7 @@
 Chạy lệnh
 
 - npm run dev --host
-  chạy thêm network để các thiết bị cùng network có thể truy cập
+  chạy thêm netprojects để các thiết bị cùng netprojects có thể truy cập
 
 - "build": "vite build --base=./" (cách khác là vào file vite.config.js)
   khi build sẽ tự động thêm đường dẫn để hạn chế lỗi tìm thấy đường dẫn (404)
