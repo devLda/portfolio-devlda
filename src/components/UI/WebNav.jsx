@@ -1,13 +1,23 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useBlocker, useLocation } from "react-router-dom";
 import ListNav from "../../utils/listNav";
 import { useEffect, useState } from "react";
 
 const WebNav = () => {
   const location = useLocation();
   const [pathName, setPathName] = useState(location.pathname.split("/"));
-  console.log("location", location);
+
+  // #ReactRouter6 #AnhOctKnow
+  // useBlocker: ngăn chặn người dùng điều hướng theo điều kiện và cho phép xác nhận có điều hướng ko
+  // Phải sử dụng <RouterProvider/> để dùng được useBlocker
+  // Có thể gắn useBlocker với biến để sử dụng các hàm reset(), proceed()
+  useBlocker(
+    ({ currentLocation, nextLocation }) =>
+      currentLocation.pathname === nextLocation.pathname
+  );
+
   useEffect(() => {
-    setPathName(location.pathname.split("/"));
+      console.log(location.pathname)
+      setPathName(location.pathname.split("/"));
   }, [location]);
   return (
     <nav className="flex items-center gap-8">
@@ -17,10 +27,10 @@ const WebNav = () => {
             key={index}
             to={item.path}
             className={`
-              relative flex items-center justify-center w-[100px] h-[40px] text-xl z-0 border border-yellow-500 border-solid ease-out duration-1000 ${
+              relative flex items-center justify-center lg:w-20 xl:w-24 h-10 xl:text-xl z-0 border-2 border-blue-400 border-solid font-semibold ease-out duration-500 ${
                 pathName.includes(item.path)
-                  ? "bg-amber-50 text-yellow-500 before:w-0 after:h-0 before:bg-amber-50 after:bg-amber-50"
-                  : "hover:bg-amber-50 hover:text-yellow-500 hover:before:w-0 before:h-[40px] before:bg-amber-100 before:hover:bg-amber-50 hover:after:h-0 after:w-[100px] after:bg-amber-100 after:hover:bg-amber-50"
+                  ? "bg-amber-50 text-yellow-500 before:w-0 after:h-0 before:bg-amber-300 after:bg-amber-300"
+                  : "text-white hover:bg-amber-50 hover:text-yellow-500 hover:before:w-0 before:h-10 before:bg-amber-300 before:hover:bg-amber-50 hover:after:h-0 after:lg:w-20 after:xl:w-24 after:bg-amber-300 after:hover:bg-amber-50"
               } 
                before:content-[''] before:absolute before:w-2/3 before:-z-10 before:ease-out before:duration-1000
                after:content-[''] after:absolute after:h-2/3 after:-z-10 after:ease-out after:duration-1000

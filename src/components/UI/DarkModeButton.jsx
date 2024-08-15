@@ -17,12 +17,11 @@ const DarkModeButton = styled(Switch)(({ theme }) => ({
 
   // Áp dụng trạng thái checked
   "& .Mui-checked": {
-    backgroundColor: "transparent",
     transform: "translateX(28px)!important",
   },
   "& .Mui-checked + .MuiSwitch-track": {
-    backgroundColor: "black",
-    opacity: 0.9,
+    backgroundColor: "#000000!important",
+    opacity: "1!important"
   },
   "& .Mui-checked .MuiSwitch-thumb": {
     color: "white",
@@ -30,9 +29,10 @@ const DarkModeButton = styled(Switch)(({ theme }) => ({
 
   //Áp dụng khoảng không gian SwitchBase chạy qua
   "& .MuiSwitch-track": {
-    backgroundColor: "transparent",
-    outline: "#FF9900 solid 1px",
+    backgroundColor: "#7ebee6",
+    outline: "4px solid white",
     borderRadius: 16,
+    opacity: 1,
     "&::before, &::after": {
       content: '""',
       position: "absolute",
@@ -62,7 +62,7 @@ const DarkModeButton = styled(Switch)(({ theme }) => ({
     height: 24,
     marginTop: -2,
     marginLeft: -2,
-    color: "black",
+    color: "#faec87",
     transform: "translate(1px, 1px)",
   },
 }));

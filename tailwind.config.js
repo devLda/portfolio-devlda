@@ -19,7 +19,9 @@ export default {
     // anhOctConfig: cấu hình font theo biến
 
     fontFamily: {
-      primary: ["Nunito", 'sans-serif']
+      primary: ["Nunito", 'sans-serif'],
+      primaryNomal: ["Nunito", 'serif'],
+      text: ["Gruppo",'sans-serif']
     },
     extend: {},
   },
