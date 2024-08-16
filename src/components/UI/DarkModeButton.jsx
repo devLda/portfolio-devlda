@@ -9,6 +9,17 @@ const DarkModeButton = styled(Switch)(({ theme }) => ({
   height: 40,
   padding: 4,
 
+  // AnhOctKnow #responsiveMUI #APIBreakpoints 
+  [theme.breakpoints.down("sm")]: {
+    width: 56,
+    height: 36,
+
+    "&::before, &::after": {
+      width: 18,
+      height: 18,
+    },
+  },
+
   // Áp dụng cho class cấp cao nhất của SwitchBase
   "& .MuiSwitch-switchBase": {
     transitionDuration: "500ms",
@@ -18,10 +29,13 @@ const DarkModeButton = styled(Switch)(({ theme }) => ({
   // Áp dụng trạng thái checked
   "& .Mui-checked": {
     transform: "translateX(28px)!important",
+    [theme.breakpoints.down("sm")]: {
+      transform: "translateX(20px)!important",
+    }
   },
   "& .Mui-checked + .MuiSwitch-track": {
     backgroundColor: "#000000!important",
-    opacity: "1!important"
+    opacity: "1!important",
   },
   "& .Mui-checked .MuiSwitch-thumb": {
     color: "white",
@@ -54,6 +68,23 @@ const DarkModeButton = styled(Switch)(({ theme }) => ({
       )}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>')`,
       right: 12,
     },
+
+    [theme.breakpoints.down("sm")]: {
+      outlineWidth: 2,
+
+      "&::before, &::after": {
+        width: 18,
+        height: 18,
+      },
+
+      "&::before": {
+        left: 8,
+      },
+
+      "&::after": {
+        right: 8,
+      }
+    },
   },
   // Áp dụng cho SwitchBase
   "& .MuiSwitch-thumb": {
@@ -64,6 +95,10 @@ const DarkModeButton = styled(Switch)(({ theme }) => ({
     marginLeft: -2,
     color: "#faec87",
     transform: "translate(1px, 1px)",
+    [theme.breakpoints.down("sm")]: {
+      width: 20,
+      height: 20,
+    },
   },
 }));
 
