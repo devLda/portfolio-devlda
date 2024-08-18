@@ -7,7 +7,9 @@ const Layout = () => {
   return (
     <div className="bg-amber-300 w-screen h-screen font-primary">
       <Header />
-      <Outlet />
+      <div className="container h-4/5">
+        <Outlet />
+      </div>
       <StairEffect />
       <PageTransition />
     </div>
