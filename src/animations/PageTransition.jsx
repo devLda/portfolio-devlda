@@ -31,6 +31,7 @@ const PageTransition = ({children}) => {
                 initial={"closed"}
                 animate={"open"}
             >
+                {/* khi initial thì hiện ra div, khi animate hoàn tất thì ẩn div */}
                 {children}
             </motion.div>
 

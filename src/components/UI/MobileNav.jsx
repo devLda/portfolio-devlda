@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import ClearIcon from "@mui/icons-material/Clear";
 
+// variant item nav
 const itemVariants = {
   open: {
     opacity: 1,
@@ -29,6 +30,7 @@ const MobileNav = () => {
           }}
           className="-mt-1"
         >
+          {/* Ẩn nút mở nav và hiệu ứng */}
           {!isOpen && (
             <motion.div
               initial={{
@@ -54,6 +56,7 @@ const MobileNav = () => {
             </motion.div>
           )}
 
+          {/* Hiện nút đóng nav và hiệu ứng */}
           {isOpen && (
             <motion.div
               initial={{
@@ -79,6 +82,8 @@ const MobileNav = () => {
             </motion.div>
           )}
         </motion.button>
+
+        {/* Thiết lập animate xuất hiện của nav và khi nav đóng */}
         <motion.div
           variants={{
             open: {
@@ -106,6 +111,7 @@ const MobileNav = () => {
           <div className="container">
             {ListNav?.map((item, index) => {
               return (
+                // animate cho các phần tử
                 <motion.div
                   key={index}
                   variants={itemVariants}
@@ -113,6 +119,7 @@ const MobileNav = () => {
                     setIsOpen(!isOpen);
                   }}
                 >
+                  {/* Thiết lập hiệu ứng khi hover vào item trong nav */}
                   <Link
                     to={item.path}
                     className={`

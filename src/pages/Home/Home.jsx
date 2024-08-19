@@ -1,4 +1,8 @@
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
+
+import CursorBlinker from "../../animations/CursorBlinker";
 import Avatar from "../../assets/avatar/avatar.jpg";
+import { useEffect } from "react";
 
 // Gom chung các component có cùng dạng về 1 Array để dễ maintance
 const aboutCareer = [
@@ -25,6 +29,20 @@ const aboutCareer = [
 ];
 
 const Home = () => {
+  const baseText = "Le Duc Anh";
+  const countText = useMotionValue(0);
+  const rounded = useTransform(countText, (latest) => Math.round(latest));
+  const displayText = useTransform(rounded, (latest) =>
+    baseText.slice(0, latest)
+  );
+
+  useEffect(() => {
+    const controls = animate(countText, baseText.length, {
+      duration: 1,
+      ease: "easeInOut",
+    });
+    return controls.stop;
+  }, []);
   return (
     <div className="w-full h-full grid grid-rows-4">
       <div className="row-span-3 grid grid-cols-3">
@@ -32,8 +50,12 @@ const Home = () => {
           <h1 className="text-6xl font-primaryNomal tracking-[0.15em] text-white">
             Xin chào,Tôi là
           </h1>
-          <h1 className="text-8xl font-primaryNomal tracking-widest text-blue-500">
-            Le Duc Anh
+          <h1 className="flex items-baseline">
+            <motion.span className="text-8xl font-primaryNomal tracking-widest text-blue-500">
+              {displayText}
+            </motion.span>
+            {/* Khi text dài ra hoặc thu lại thì cursor sẽ tự động đi theo */}
+            <CursorBlinker />
           </h1>
           <h3 className="w-5/6 text-2xl font-primaryNomal tracking-[0.15em] text-white">
             "Cống hiến giá trị - Nhận lại thành công"
