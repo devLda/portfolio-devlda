@@ -5,9 +5,9 @@ import StairEffect from "../../animations/StairEffect";
 
 const Layout = () => {
   return (
-    <div className="bg-amber-300 w-screen h-screen font-primary">
+    <div className="bg-amber-300 w-screen h-screen font-primary overflow-hidden">
       <Header />
-      <div className="container h-4/5">
+      <div className="container h-[92%] lg:h-[90%]">
         <Outlet />
       </div>
       <StairEffect />

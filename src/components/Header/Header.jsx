@@ -8,12 +8,12 @@ import DarkModeBuuton from "../UI/DarkModeButton.jsx";
 
 const Header = () => {
   return (
-    <header className="relative h-1/5 py-4 lg:py-8">
+    <header className="relative h-[8%] lg:h-[10%] flex items-center">
       <div className="container mx-auto flex lg:items-end justify-between">
         {/* Logo */}
         <Link to={""}>
           {/* Viết ký tự đặc biệt "<" thêm dấu {''} */}
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-primaryNomal font-semibold text-white">
+          <h1 className="text-2xl sm:text-4xl font-primaryNomal font-semibold text-white">
             {"<DucAnh />"}
           </h1>
         </Link>
@@ -24,6 +24,7 @@ const Header = () => {
             <WebNav />
           </div>
 
+          {/* Mobile Nav */}
           <div className="lg:hidden">
             <MobileNav />
           </div>

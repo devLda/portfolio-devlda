@@ -32,15 +32,7 @@ const MobileNav = () => {
         >
           {/* Ẩn nút mở nav và hiệu ứng */}
           {!isOpen && (
-            <motion.div
-              initial={{
-                rotate: 135,
-              }}
-              animate={{
-                rotate: 180,
-              }}
-              transition={{ duration: 0.3 }}
-            >
+            <motion.div>
               <MenuIcon
                 sx={{
                   // marginTop: "-4px",
@@ -64,6 +56,9 @@ const MobileNav = () => {
               }}
               animate={{
                 rotate: 90,
+              }}
+              exit={{
+                rotate: 180,
               }}
               transition={{ duration: 0.3 }}
             >
@@ -106,7 +101,7 @@ const MobileNav = () => {
             },
           }}
           style={{ pointerEvents: isOpen ? "auto" : "none" }}
-          className="absolute top-16 left-0 flex flex-col items-center w-full h-[calc(100vh-64px)] bg-amber-300"
+          className={`absolute left-0 z-10 flex flex-col items-center w-full h-[calc(100vh)] bg-amber-300`}
         >
           <div className="container">
             {ListNav?.map((item, index) => {
