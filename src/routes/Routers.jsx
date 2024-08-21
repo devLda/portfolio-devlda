@@ -2,10 +2,9 @@
 
 import { Navigate } from "react-router-dom";
 import { Home } from "../pages/Home";
-import { Skills } from "../pages/Skills";
-import { Experience } from "../pages/Experience";
 import { Projects } from "../pages/Projects";
 import { Contact } from "../pages/Contact";
+import { Resume } from "../pages/Resume";
 
 import { Layout } from "../components/Layout";
 import path from "../utils/path";
@@ -24,12 +23,8 @@ export const Routers = [
         element: <Home />,
       },
       {
-        path: `${path.SKILLS}`,
-        element: <Skills />,
-      },
-      {
-        path: `${path.EXPERIENCE}`,
-        element: <Experience />,
+        path: `${path.RESUME}`,
+        element: <Resume />,
       },
       {
         path: `${path.PROJECTS}`,

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const Layout = () => {
   const [isLandscapeMobile, setLandscapeMobile] = useState(false);
   useEffect(() => {
+    // Kiểm tra thiết bị đăng nhập có phải mobile và nằm ngang ko
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
         navigator.userAgent
@@ -18,7 +19,8 @@ const Layout = () => {
           setLandscapeMobile(true);
       }
     }
-    console.log(isLandscapeMobile);
+    // setLandscapeMobile(true)
+    // console.log(isLandscapeMobile);
   }, [window.innerWidth]);
   return (
     <div className="bg-amber-300 w-screen h-screen font-primary overflow-hidden">

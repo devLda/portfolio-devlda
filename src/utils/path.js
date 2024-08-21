@@ -1,7 +1,6 @@
 const path = {
     HOME: "home",
-    SKILLS: "skills",
-    EXPERIENCE: "experience",
+    RESUME: "resume",
     PROJECTS: "projects",
     CONTACT: "contact",
 }
