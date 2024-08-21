@@ -6,10 +6,17 @@ import MobileNav from "../UI/MobileNav.jsx";
 import WebNav from "../UI/WebNav.jsx";
 import DarkModeBuuton from "../UI/DarkModeButton.jsx";
 
-const Header = () => {
+const Header = ({ childrenProp }) => {
+  const { isLandscapeMobile } = childrenProp;
   return (
-    <header className="relative h-[8%] lg:h-[10%] flex items-center">
-      <div className="container mx-auto flex lg:items-end justify-between">
+    <header
+      className={` 
+    ${isLandscapeMobile ? "h-1/6" : "h-[8%] lg:h-[10%]"}
+    relative flex items-center`}
+    >
+      <div className={`
+        ${isLandscapeMobile ? "max-w-full" : ""}
+        container mx-auto flex lg:items-end justify-between`}>
         {/* Logo */}
         <Link to={""}>
           {/* Viết ký tự đặc biệt "<" thêm dấu {''} */}
@@ -26,7 +33,7 @@ const Header = () => {
 
           {/* Mobile Nav */}
           <div className="lg:hidden">
-            <MobileNav />
+            <MobileNav childrenProp={childrenProp} />
           </div>
 
           {/* Hiệu ứng giúp nút bấm Darkmode sinh động hơn */}

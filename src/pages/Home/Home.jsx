@@ -3,6 +3,7 @@ import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import CursorBlinker from "../../animations/CursorBlinker";
 import Avatar from "../../assets/avatar/avatar.jpg";
 import { useEffect, useRef, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 // Gom chung các component có cùng dạng về 1 Array để dễ maintance
 const aboutCareer = [
@@ -61,8 +62,8 @@ const textVariants = {
 };
 
 const Home = () => {
-  const [isLandscapeMobile, setLandscapeMobile] = useState(false);
-
+  const [isLandscapeMobile] = useOutletContext();
+  console.log("isLand ", isLandscapeMobile);
   const textIndex = useMotionValue(0);
   const texts = ["Lê Đức Anh", "Nhà phát triển web"];
   const baseText = useTransform(textIndex, (lastest) => texts[lastest] || "");
@@ -109,20 +110,6 @@ const Home = () => {
     //   onUpdate: (lastest) => console.log(lastest),
     // });
   }, []);
-
-  useEffect(() => {
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
-        navigator.userAgent
-      )
-    ) {
-      console.log("mobile");
-      if (!window.matchMedia("(orientation: portrait)").matches)
-        setLandscapeMobile(true);
-    }
-
-    console.log(isLandscapeMobile);
-  }, [window.innerWidth]);
   return (
     <div
       className={`w-full h-full grid ${
@@ -132,9 +119,9 @@ const Home = () => {
       <div
         className={`${
           isLandscapeMobile
-            ? "grid-cols-3"
-            : "row-span-5 grid-rows-5 lg:row-span-3 lg:grid-rows-3 lg:grid-cols-3"
-        } grid`}
+            ? "grid-cols-3 "
+            : "grid-rows-5 lg:row-span-3 lg:grid-rows-3 lg:grid-cols-3"
+        } grid row-span-5`}
       >
         <div
           className={`${
@@ -186,7 +173,7 @@ const Home = () => {
             className={`
             ${
               isLandscapeMobile
-                ? "w-5/6 text-base"
+                ? "w-full sm:w-5/6 text-xs sm:text-base"
                 : "w-full lg:w-5/6 text-xs xs:text-base sm:text-2xl lg:text-xl xl:text-2xl"
             }
              font-primary tracking-[0.15em] font-medium text-white`}
@@ -197,7 +184,7 @@ const Home = () => {
             className={`
             ${
               isLandscapeMobile
-                ? "w-5/6 text-base"
+                ? "w-full sm:w-5/6 text-xs sm:text-base"
                 : "w-full lg:w-5/6 text-xs xs:text-base sm:text-2xl lg:text-xl xl:text-2xl"
             }
              font-primary tracking-[0.15em] font-medium text-white`}
@@ -206,20 +193,24 @@ const Home = () => {
             tôi
           </h3>
         </div>
-        <div className={`
+        <div
+          className={`
           ${
             isLandscapeMobile
-              ? "row-span-3 col-span-1"
+              ? "col-span-1"
               : "row-span-2 lg:row-span-3 lg:col-span-1"
           }
-           w-full flex justify-center items-center`}>
-          <div className={`
+           w-full flex justify-center items-center`}
+        >
+          <div
+            className={`
             ${
               isLandscapeMobile
-                ? "w-48 h-48"
+                ? "w-40 sm:w-48 h-40 sm:h-48"
                 : "w-32 h-32 xs:w-48 xs:h-48 sm:w-80 sm:h-80 xl:w-96 xl:h-96"
             }
-            p-4 flex justify-center`}>
+            p-4 flex justify-center`}
+          >
             <img
               className="w-full h-full rounded-full"
               src={Avatar}
@@ -249,29 +240,31 @@ const Home = () => {
         })}
       </div> */}
 
-      <div className={`
-        ${
-          isLandscapeMobile
-            ? "flex-nowrap"
-            : "flex-wrap lg:flex-nowrap"
-        }
-        row-span-1 flex items-center justify-between`}>
+      <div
+        className={`
+        ${isLandscapeMobile ? "flex-nowrap" : "flex-wrap lg:flex-nowrap"}
+        row-span-1 flex items-center justify-between`}
+      >
         {aboutCareer.map((item, index) => {
           return (
             <div
               key={index}
-              className="basis-1/2 lg:basis-auto grid grid-cols-5 lg:flex lg:gap-4"
-            >
-              {index % 2 === 1 && widthDevice.current > 640 && (
-                <div className={`lg:hidden col-span-1`}></div>
-              )}
-              <h3 className={`
-                ${
-                  isLandscapeMobile
-                    ? "text-3xl"
-                    : "text-3xl sm:text-6xl"
+              className={`
+                ${isLandscapeMobile 
+                  ? "flex gap-2" : "basis-1/2 lg:basis-auto grid grid-cols-5 lg:flex lg:gap-4"
                 }
-                col-span-2 flex justify-center text-blue-500 tracking-wider`}>
+                `}
+            >
+              {index % 2 === 1 &&
+                widthDevice.current > 640 &&
+                !isLandscapeMobile && (
+                  <div className={`lg:hidden col-span-1`}></div>
+                )}
+              <h3
+                className={`
+                ${isLandscapeMobile ? "text-3xl" : "text-3xl sm:text-6xl"}
+                col-span-2 flex justify-center text-blue-500 tracking-wider`}
+              >
                 {item.quantity}
               </h3>
               <div
@@ -283,10 +276,19 @@ const Home = () => {
                 }
                 flex flex-col`}
               >
-                <p className="text-xs sm:text-lg text-white font-medium tracking-widest">
+                <p
+                  className={`
+                  ${isLandscapeMobile ? "text-xs" : "text-xs sm:text-lg"}
+                   text-white font-medium tracking-widest`}
+                >
                   {item.describe_1}
                 </p>
-                <p className="text-xs sm:text-lg text-white font-medium tracking-widest">
+                <p
+                  className={`
+                  ${
+                    isLandscapeMobile ? "text-xs" : "text-xs sm:text-lg"
+                  } text-white font-medium tracking-widest`}
+                >
                   {item.describe_2}
                 </p>
               </div>

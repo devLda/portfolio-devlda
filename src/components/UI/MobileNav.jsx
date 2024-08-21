@@ -17,7 +17,8 @@ const itemVariants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
 
-const MobileNav = () => {
+const MobileNav = ({ childrenProp }) => {
+  const { isLandscapeMobile } = childrenProp;
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -103,7 +104,11 @@ const MobileNav = () => {
           style={{ pointerEvents: isOpen ? "auto" : "none" }}
           className={`absolute left-0 z-10 flex flex-col items-center w-full h-[calc(100vh)] bg-amber-300`}
         >
-          <div className="container">
+          <div
+            className={`
+            ${isLandscapeMobile ? "flex flex-wrap max-w-full" : ""}
+            container`}
+          >
             {ListNav?.map((item, index) => {
               return (
                 // animate cho các phần tử
@@ -113,6 +118,9 @@ const MobileNav = () => {
                   onClick={() => {
                     setIsOpen(!isOpen);
                   }}
+                  className={`
+                    ${isLandscapeMobile ? "basis-1/3 px-4 sm:basis-1/2 sm:px-8" : ""}
+                    `}
                 >
                   {/* Thiết lập hiệu ứng khi hover vào item trong nav */}
                   <Link
@@ -122,7 +130,7 @@ const MobileNav = () => {
                         ${
                           location.pathname.split("/").includes(item.path)
                             ? "text-yellow-500 bg-white before:w-0 after:h-0"
-                            : "before:w-[110%] after:h-[110%] hover:text-yellow-500 hover:bg-white before:hover:w-0 after:hover:h-0"
+                            : "before:w-[110%] after:h-[120%] hover:text-yellow-500 hover:bg-white before:hover:w-0 after:hover:h-0"
                         }
                         before:content-[''] before:absolute before:h-8 before:bg-amber-300 before:-z-10 before:ease-in-out before:duration-500 
                         after:content-[''] after:w-20 after:absolute after:bg-amber-300 after:-z-10 after:ease-in-out after:duration-500
