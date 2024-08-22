@@ -11,8 +11,8 @@ const Header = ({ childrenProp }) => {
   return (
     <header
       className={` 
-    ${isLandscapeMobile ? "h-1/6" : "h-[8%] lg:h-[10%]"}
-    relative flex items-center`}
+    ${isLandscapeMobile ? "h-1/6" : "h-12 lg:h-[10%]"}
+    min-h-9 relative flex items-center`}
     >
       <div className={`
         ${isLandscapeMobile ? "max-w-full" : ""}

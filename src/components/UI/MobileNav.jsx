@@ -102,7 +102,7 @@ const MobileNav = ({ childrenProp }) => {
             },
           }}
           style={{ pointerEvents: isOpen ? "auto" : "none" }}
-          className={`absolute left-0 z-10 flex flex-col items-center w-full h-[calc(100vh)] bg-amber-300`}
+          className={`absolute top-12 left-0 z-10 flex flex-col items-center w-full h-[calc(100vh_-_48px)] bg-amber-300`}
         >
           <div
             className={`
@@ -119,7 +119,11 @@ const MobileNav = ({ childrenProp }) => {
                     setIsOpen(!isOpen);
                   }}
                   className={`
-                    ${isLandscapeMobile ? "basis-1/3 px-4 sm:basis-1/2 sm:px-8" : ""}
+                    ${
+                      isLandscapeMobile
+                        ? "basis-1/3 px-4 sm:basis-1/2 sm:px-8"
+                        : ""
+                    }
                     `}
                 >
                   {/* Thiết lập hiệu ứng khi hover vào item trong nav */}

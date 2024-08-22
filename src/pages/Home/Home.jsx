@@ -134,7 +134,7 @@ const Home = () => {
             className={`${
               isLandscapeMobile
                 ? "text-3xl"
-                : "text-2xl sm:text-6xl lg:text-5xl xl:text-6xl"
+                : "text-2xl sm:text-4xl lg:text-5xl xl:text-6xl"
             } font-primaryNomal tracking-[0.15em] text-white`}
           >
             Xin chào,Tôi là
@@ -150,7 +150,7 @@ const Home = () => {
               className={`${
                 isLandscapeMobile
                   ? "text-4xl"
-                  : "text-2xl xs:text-3xl sm:text-7xl lg:text-6xl xl:text-7xl"
+                  : "text-2xl xs:text-3xl sm:text-5xl xl:text-7xl"
               }
            font-primaryNomal tracking-widest text-blue-500`}
             >
@@ -174,7 +174,7 @@ const Home = () => {
             ${
               isLandscapeMobile
                 ? "w-full sm:w-5/6 text-xs sm:text-base"
-                : "w-full lg:w-5/6 text-xs xs:text-base sm:text-2xl lg:text-xl xl:text-2xl"
+                : "w-full lg:w-5/6 text-xs xs:text-base sm:text-xl xl:text-2xl"
             }
              font-primary tracking-[0.15em] font-medium text-white`}
           >
@@ -185,7 +185,7 @@ const Home = () => {
             ${
               isLandscapeMobile
                 ? "w-full sm:w-5/6 text-xs sm:text-base"
-                : "w-full lg:w-5/6 text-xs xs:text-base sm:text-2xl lg:text-xl xl:text-2xl"
+                : "w-full lg:w-5/6 text-xs xs:text-base sm:text-xl xl:text-2xl"
             }
              font-primary tracking-[0.15em] font-medium text-white`}
           >
@@ -207,7 +207,7 @@ const Home = () => {
             ${
               isLandscapeMobile
                 ? "w-40 sm:w-48 h-40 sm:h-48"
-                : "w-32 h-32 xs:w-48 xs:h-48 sm:w-80 sm:h-80 xl:w-96 xl:h-96"
+                : "w-32 h-32 xs:w-48 xs:h-48 sm:w-60 sm:h-60 lg:w-80 lg:h-8w-80 xl:w-96  xl:h-96"
             }
             p-4 flex justify-center`}
           >
@@ -262,7 +262,7 @@ const Home = () => {
                 )}
               <h3
                 className={`
-                ${isLandscapeMobile ? "text-3xl" : "text-3xl sm:text-6xl"}
+                ${isLandscapeMobile ? "text-3xl" : "text-3xl sm:text-5xl md:text-6xl"}
                 col-span-2 flex justify-center text-blue-500 tracking-wider`}
               >
                 {item.quantity}
@@ -278,7 +278,7 @@ const Home = () => {
               >
                 <p
                   className={`
-                  ${isLandscapeMobile ? "text-xs" : "text-xs sm:text-lg"}
+                  ${isLandscapeMobile ? "text-xs" : "text-xs sm:text-base md:text-lg"}
                    text-white font-medium tracking-widest`}
                 >
                   {item.describe_1}
@@ -286,7 +286,7 @@ const Home = () => {
                 <p
                   className={`
                   ${
-                    isLandscapeMobile ? "text-xs" : "text-xs sm:text-lg"
+                    isLandscapeMobile ? "text-xs" : "text-xs sm:text-base md:text-lg"
                   } text-white font-medium tracking-widest`}
                 >
                   {item.describe_2}

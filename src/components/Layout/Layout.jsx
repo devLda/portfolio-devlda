@@ -23,11 +23,15 @@ const Layout = () => {
     // console.log(isLandscapeMobile);
   }, [window.innerWidth]);
   return (
-    <div className="bg-amber-300 w-screen h-screen font-primary overflow-hidden">
+    <div className="bg-amber-300 w-screen h-screen font-primary">
       <Header childrenProp={{ isLandscapeMobile: isLandscapeMobile }} />
       <div
         className={`
-        ${isLandscapeMobile ? "h-5/6 max-w-full" : "h-[92%] lg:h-[90%]"}
+        ${
+          isLandscapeMobile
+            ? "h-5/6 max-w-full"
+            : "h-[calc(100vh_-_48px)] lg:h-[90%]"
+        }
         container`}
       >
         {/* #useOutletContext: dùng để truyền prop vào outlet */}
