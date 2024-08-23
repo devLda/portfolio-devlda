@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // UI Component
-import MobileNav from "../UI/MobileNav.jsx";
-import WebNav from "../UI/WebNav.jsx";
+import MobileNav from "../Nav/MobileNav.jsx";
+import WebNav from "../Nav/WebNav.jsx";
 import DarkModeBuuton from "../UI/DarkModeButton.jsx";
 
 const Header = ({ childrenProp }) => {

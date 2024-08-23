@@ -2,6 +2,8 @@
 
 * Xác định cấu trúc Project
 
+- Kỹ thuật lazy loading: Ban đầu tải những phần cần thiết, trì hoãn các tài nguyên còn lại cho đến khi cần
+
 Chạy lệnh
 
 - npm run dev --host
