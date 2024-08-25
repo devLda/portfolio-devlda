@@ -8,10 +8,11 @@ const Item = styled(Paper)(({ theme }) => ({
   fontWeight: theme.typography.body2.fontWeight[5],
   letterSpacing: theme.typography.body2.letterSpacing,
   color: theme.palette.text.secondary,
+  cursor: "pointer",
   "&:hover": {
     backgroundColor: theme.palette.text.secondary,
     color: theme.palette.primary.light,
-    transition: "0.3s ease-in-out"
+    transition: "0.3s ease-in-out",
   },
 }));
 

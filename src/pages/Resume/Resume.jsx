@@ -119,7 +119,7 @@ export default function Resume() {
                     duration: 3,
                     ease: "easeInOut",
                   }}
-                  className="w-full h-full"
+                  className="w-full h-full overflow-hidden"
                 >
                   {item.component}
                 </motion.div>
