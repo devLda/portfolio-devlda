@@ -37,7 +37,7 @@ const timelineExp = [
         describe:
           "Ứng dụng web giúp các cơ quan theo dõi, quản lý quá trình thực hiện các đề tài từ lúc bắt đầu gửi đề xuất đến khi nghiệm thu hoàn thành và các thông tin liên quan",
         responsibility: [
-          "Thay đổi giao diện cũ theo thiết kế mới áp dụng trên toàn bộ ứng dụng web",
+          "Thay đổi giao diện cũ theo thiết kế mới của figma",
           "Tối ưu lại code cũ (sử dụng nhiều hàm thừa, logic phức tạp, call api nhiều lần) giúp thời gian load giữa các trang từ 6-7s giảm xuống 2-3s. ",
         ],
         technologies: [
