@@ -10,7 +10,7 @@ const Education = () => {
         Học vấn và các chứng chỉ
       </h1>
 
-      <div className="w-full h-[calc(100%_-_48px)] flex flex-col gap-4 overflow-y-auto scrollbar">
+      <div className={`${isLandscapeMobile ? "gap-0" : "gap-4"} h-[calc(100%_-_48px)] w-full flex flex-col overflow-y-auto scrollbar`}>
         {listEdu.map((edu, index) => {
           return (
             <div className="w-full">

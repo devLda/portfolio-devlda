@@ -19,7 +19,7 @@ const Layout = () => {
           setLandscapeMobile(true);
       }
     }
-    setLandscapeMobile(true)
+    // setLandscapeMobile(true)
     // console.log(isLandscapeMobile);
   }, [window.innerWidth]);
   return (

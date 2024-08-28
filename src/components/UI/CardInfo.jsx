@@ -1,16 +1,40 @@
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { useOutletContext } from "react-router-dom";
 
 const CardInfo = ({ childrenProp }) => {
   const { time, title, describe } = childrenProp;
+  const [isLandscapeMobile] = useOutletContext();
   return (
-    <Box className="my-4 py-2 px-4 bg-blue-200 rounded-xl">
-      <Typography variant="h5" className="text-amber-500">
+    <Box
+      className={`${
+        isLandscapeMobile ? "my-2" : "my-4 "
+      } py-2 px-4 bg-blue-200 rounded-xl`}
+    >
+      <Typography className="text-amber-500" sx={{
+        fontWeight: 500,
+        fontSize: {
+          md: 18,
+          xxs: 12
+        }
+      }}>
         {time}
       </Typography>
-      <Typography variant="h4" className="text-white">
+      <Typography className="text-white" sx={{
+        fontWeight: 500,
+        fontSize: {
+          md: 28,
+          xxs: 20
+        }
+      }}>
         {title}
       </Typography>
-      <Typography variant="h6" className="text-black">
+      <Typography className="text-black" sx={{
+        fontWeight: 500,
+        fontSize: {
+          md: 20,
+          xxs: 16
+        }
+      }}>
         {describe}
       </Typography>
     </Box>
