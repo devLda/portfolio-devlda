@@ -36,8 +36,23 @@ const theme = createTheme({
       ],
       letterSpacing: "2px",
     },
+    h3: {
+      fontSize: "1.75rem"
+    },
+    h4: {
+      fontSize: "1.5rem"
+    },
+    h5: {
+      fontSize: "1.25rem"
+    },
+    h6: {
+      fontSize: "1rem",
+    },
     // Có thể sử dụng biến thể
-    // .poster: {}
+    title: {
+      fontSize: "1.5rem",
+      color: blue[400]
+    }
   },
 
   // Chỉnh sửa màu

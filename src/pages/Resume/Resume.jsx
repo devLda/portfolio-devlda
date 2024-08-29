@@ -163,7 +163,7 @@ export default function Resume() {
 
       {/* CardContent: block, padding-bottom */}
       <Box className={`
-      ${isLandscapeMobile ? "w-3/4 h-full" : "lg:container w-full lg:w-3/4 h-[calc(100%_-_60px)] lg:h-full my-2 sm:my-4 lg:my-0"}
+      ${isLandscapeMobile ? "w-3/4 h-full" : "lg:container w-full lg:w-3/4 h-[calc(100%_-_80px)] lg:h-full my-2 sm:my-4 lg:my-0"}
        `}>
         <motion.div
           key={isSelected}

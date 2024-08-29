@@ -31,7 +31,7 @@ const Layout = () => {
           isLandscapeMobile
             ? "h-5/6 max-w-full"
             // #AnhOctKnow #Tips: muốn thêm khoảng trắng vào class tailwind ta thêm "_"
-            : "h-[calc(100vh_-_48px)] lg:h-[90%] max-w-full sm:max-w-max"
+            : "h-[calc(100vh_-_48px)] lg:h-[90%] max-w-full"
         }
         container`}
       >
