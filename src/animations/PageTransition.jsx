@@ -17,7 +17,7 @@ const PageTransition = ({ children }) => {
         {/* Motion Component #FarmerMotion */}
         {/* Motion component được tạo ra khi ta thêm keywork "motion" và bên trong thẻ */}
         <motion.div
-          className="fixed top-0 w-screen h-screen bg-amber-100 pointer-events-none"
+          className="fixed top-0 w-screen h-screen bg-amber-100 pointer-events-none z-20"
           variants={{
             // variants sử dụng giá trị css thuần
             open: {

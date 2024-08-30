@@ -83,7 +83,7 @@ const MobileNav = ({ childrenProp }) => {
         <motion.div
           variants={{
             open: {
-              clipPath: "inset(0% 0% 0% 0% round 10px)",
+              clipPath: "inset(0% 0% 0% 0% round 0px)",
               transition: {
                 type: "spring",
                 bounce: 0,
@@ -102,7 +102,7 @@ const MobileNav = ({ childrenProp }) => {
             },
           }}
           style={{ pointerEvents: isOpen ? "auto" : "none" }}
-          className={`absolute top-12 left-0 z-10 flex flex-col items-center w-full h-[calc(100vh_-_48px)] bg-amber-300`}
+          className={`absolute top-11 left-0 z-10 flex flex-col items-center w-full h-[calc(100vh_-_44px)] bg-amber-300`}
         >
           <div
             className={`

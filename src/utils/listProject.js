@@ -10,8 +10,7 @@ const project = [
       "Đặc điểm nổi bật là web sử dụng nhiều animation và responsive tương thích trên rất nhiều thiết bị từ mobile, tablet đến laptop",
     ],
     mainFunction: [
-      "Hiển thị các thông tin cá nhân",
-      "Học thêm kinh nghiệm làm web bằng MUI và Farmer Motion"
+      "Hiển thị chi tiết các thông tin liên quan đến trình độ chuyên môn",
     ],
     technologies: ["ReactJs", "Tailwindcss", "Material UI", "Farmer Motion"],
     link: [
@@ -28,6 +27,7 @@ const project = [
   {
     project: "Website Quản lý khách sạn Anh Oct",
     time: "Tháng 03/2023 - Tháng 06/2023",
+    image: "../" + avatar,
     state: "done",
     describe:[
       "Đây là project tôi code cho việc bảo vệ đồ án tốt nghiệp.",

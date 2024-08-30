@@ -36,6 +36,12 @@ const theme = createTheme({
       ],
       letterSpacing: "2px",
     },
+    h1: {
+      fontSize: "2.5rem"
+    },
+    h2: {
+      fontSize: "2rem"
+    },
     h3: {
       fontSize: "1.75rem"
     },
@@ -47,6 +53,12 @@ const theme = createTheme({
     },
     h6: {
       fontSize: "1rem",
+    },
+    h7: {
+      fontSize: "0.875rem",
+    },
+    h8: {
+      fontSize: "0.75rem",
     },
     // Có thể sử dụng biến thể
     title: {
