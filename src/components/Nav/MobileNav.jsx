@@ -39,8 +39,8 @@ const MobileNav = ({ childrenProp }) => {
                   // marginTop: "-4px",
                   // AnhOctKnow #responsiveMUI #SxPropBreakpoints
                   fontSize: {
-                    xs: 40,
                     sm: 48,
+                    xxs: 40,
                   },
                   color: "white",
                   cursor: "pointer",

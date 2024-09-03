@@ -66,13 +66,13 @@ const Slider = () => {
           ></motion.img> */}
       <div className="h-full w-screen z-[3] bg-black opacity-60"></div>
       <button
-        className="absolute top-1/2 left-0 py-2 px-1 sm:px-4 text-2xl sm:text-4xl bg-blue-400 text-white z-10"
+        className="absolute top-1/2 left-0 py-2 px-2 sm:px-4 text-4xl bg-blue-400 text-white z-10 opacity-30 hover:opacity-100"
         onClick={() => handleChange(-1)}
       >
         <FaAngleLeft />
       </button>
       <button
-        className="absolute top-1/2 right-0 py-2 px-1 sm:px-4 text-2xl sm:text-4xl bg-blue-400 text-white z-10"
+        className="absolute top-1/2 right-0 py-2 px-2 sm:px-4 text-4xl bg-blue-400 text-white z-10 opacity-30 hover:opacity-100"
         onClick={() => handleChange(1)}
       >
         <FaAngleRight />

@@ -3,10 +3,17 @@ import { Header } from "../Header";
 import PageTransition from "../../animations/PageTransition";
 import StairEffect from "../../animations/StairEffect";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
 
 const Layout = () => {
   const [isLandscapeMobile, setLandscapeMobile] = useState(false);
+  // const [heightReal, setHeightReal] = useState(window.innerHeight);
+  const [widthReal, setWidthReal] = useState(window.innerWidth);
+  // const heightReal = useRef(window.innerHeight);
   useEffect(() => {
+    // update height
+    // setHeightReal(window.innerHeight);
+    setWidthReal(window.innerWidth);
     // Kiểm tra thiết bị đăng nhập có phải mobile và nằm ngang ko
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
@@ -19,21 +26,35 @@ const Layout = () => {
           setLandscapeMobile(true);
       }
     }
-    // setLandscapeMobile(true)
+    // setLandscapeMobile(true);
     // console.log(isLandscapeMobile);
   }, [window.innerWidth]);
+
   return (
-    <div className="bg-amber-300 w-screen h-screen font-primary">
+    <div className="bg-amber-300 w-screen h-screen font-primary overflow-hidden">
       <Header childrenProp={{ isLandscapeMobile: isLandscapeMobile }} />
       <div
         className={`
         ${
           isLandscapeMobile
             ? "h-5/6 max-w-full"
-            // #AnhOctKnow #Tips: muốn thêm khoảng trắng vào class tailwind ta thêm "_"
-            : "h-[calc(100vh_-_48px)] lg:h-[90%] max-w-full"
+            : `${
+                widthReal > 640
+                  ? "h-[90%]"
+                  : "max-w-full h-[calc(100vh_-_49px)]"
+              }`
         }
-        container`}
+       container`}
+        // #AnhOctKnow #Tips: muốn thêm khoảng trắng vào class tailwind ta thêm "_"
+        // style={{
+        //   height: `${
+        //     isLandscapeMobile
+        //       ? (heightReal * 5) / 6
+        //       : widthReal > 960
+        //       ? (heightReal * 9) / 10
+        //       : heightReal - 49
+        //   }px`,
+        // }}
       >
         {/* #useOutletContext: dùng để truyền prop vào outlet */}
         {/* Arrray có thể truyền giá trị hoặc hàm */}

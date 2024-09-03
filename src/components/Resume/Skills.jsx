@@ -1,8 +1,4 @@
-import {
-  Card,
-  CardContent,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, Typography } from "@mui/material";
 import listSkill from "../../utils/listSkill.jsx";
 import { useOutletContext } from "react-router-dom";
 
@@ -10,7 +6,13 @@ const Skills = () => {
   const [isLandscapeMobile] = useOutletContext();
   return (
     <>
-      <h1 className={`${isLandscapeMobile ? "text-xl" : "h-12 text-base xs:text-xl sm:text-3xl pb-2"}  text-center text-blue-400`}>
+      <h1
+        className={`${
+          isLandscapeMobile
+            ? "text-xl"
+            : "h-12 text-base sm:text-2xl lg:text-3xl pb-2"
+        }  text-center text-blue-400`}
+      >
         Công nghệ chính thường sử dụng
       </h1>
 
@@ -25,14 +27,21 @@ const Skills = () => {
                     sx={{
                       width: 0.8,
                       display: "flex",
-                      justifyItems: "center"
+                      justifyItems: "center",
                     }}
                   >
-                    <CardContent sx={{
-                      width: 1,
-                      padding: "16px!important"
-                    }}>
-                      <p className="text-slate-600 flex justify-center">{skill.image}</p>
+                    <CardContent
+                      sx={{
+                        width: 1,
+                        padding: {
+                          md: "16px!important",
+                          xxs: "8px!important",
+                        },
+                      }}
+                    >
+                      <p className="text-slate-600 flex justify-center">
+                        {skill.image}
+                      </p>
                       <Typography
                         gutterBottom
                         component="div"

@@ -88,6 +88,7 @@ export default function Resume() {
         }
       /> */}
 
+      {/* Select Type Lap */}
       <Box
         className={`
         ${isLandscapeMobile ? "" : "hidden lg:block"}
@@ -101,18 +102,21 @@ export default function Resume() {
                 // css sx prop > css setup trong component > css class tailwindcss
                 // sx prop với điều kiện
                 sx={{
-                  ...(!isLandscapeMobile && item.label === isSelected && {
-                    backgroundColor: "#42a5f5",
-                    color: "white",
-                  }),
-                  ...(isLandscapeMobile && item.label === isSelected && {
-                    fontSize: 12,
-                    backgroundColor: "#42a5f5",
-                    color: "white",
-                  }),
-                  ...(isLandscapeMobile && item.label !== isSelected && {
-                    fontSize: 12,
-                  }),
+                  ...(!isLandscapeMobile &&
+                    item.label === isSelected && {
+                      backgroundColor: "#42a5f5",
+                      color: "white",
+                    }),
+                  ...(isLandscapeMobile &&
+                    item.label === isSelected && {
+                      fontSize: 12,
+                      backgroundColor: "#42a5f5",
+                      color: "white",
+                    }),
+                  ...(isLandscapeMobile &&
+                    item.label !== isSelected && {
+                      fontSize: 12,
+                    }),
                 }}
                 onClick={() => {
                   if (item.label !== isSelected) setIsSelected(item.label);
@@ -125,6 +129,7 @@ export default function Resume() {
         </Stack>
       </Box>
 
+      {/* Select Type Mobile */}
       <Box
         className={`
         ${isLandscapeMobile ? "hidden" : "block lg:hidden"}
@@ -133,13 +138,19 @@ export default function Resume() {
         <FormControl fullWidth>
           <Select
             value={isSelected}
-            label="selResumeType"
+            // set text field ko có label
+            hiddenLabel={true}
             onChange={handleSelectResume}
             style={{
               backgroundColor: "#fff",
               fontSize: 20,
               border: "2px solid black",
               color: blue[400],
+            }}
+            sx={{
+              "& .MuiSelect-select": {
+                borderRadius: 0,
+              },
             }}
           >
             {componentResume.map((item) => {
@@ -162,9 +173,15 @@ export default function Resume() {
       </Box>
 
       {/* CardContent: block, padding-bottom */}
-      <Box className={`
-      ${isLandscapeMobile ? "w-3/4 h-full" : "lg:container w-full lg:w-3/4 h-[calc(100%_-_80px)] lg:h-full my-2 sm:my-4 lg:my-0"}
-       `}>
+      <Box
+        className={`
+      ${
+        isLandscapeMobile
+          ? "w-3/4 h-full"
+          : "lg:container w-full lg:w-3/4 h-[calc(100%_-_80px)] lg:h-full my-2 sm:my-4 lg:my-0"
+      }
+       `}
+      >
         <motion.div
           key={isSelected}
           animate={{
@@ -178,7 +195,7 @@ export default function Resume() {
             times: [0, 0.2, 0.5, 0.8, 1],
           }}
           className={`
-            ${isLandscapeMobile ? "py-1" : "pt-4 pb-8"}
+            ${isLandscapeMobile ? "py-1 ml-2" : "pt-4 pb-8"}
           w-full h-full container flex justify-between items-center bg-amber-100`}
         >
           {componentResume.map((item) => {

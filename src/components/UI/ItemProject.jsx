@@ -32,17 +32,13 @@ const ItemProject = ({ childrenProp }) => {
       {/* Grid chứa container là grid cha chứa item là grid con */}
       <Grid
         container
-        // chia theo cột không chia theo hàng
         columns={12}
         bgcolor={amber[100]}
         borderRadius={4}
         sx={{
-          width: {
-            lg: 0.6,
-            xxs: 0.7,
-          },
+          width: 1,
           height: {
-            md: isLandscapeMobile ? 0.9 : 2/3,
+            md: isLandscapeMobile ? 0.9 : 2 / 3,
             xxs: 0.9,
           },
           overflowY: "auto",
