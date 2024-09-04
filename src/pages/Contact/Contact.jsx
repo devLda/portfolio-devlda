@@ -19,6 +19,7 @@ import { useState } from "react";
 const Contact = () => {
   const [isLandscapeMobile] = useOutletContext();
   const refInnerWidth = useRef(window.innerWidth);
+  const refInnerHeight = useRef(window.innerHeight);
 
   const [open, setOpen] = useState(false);
 
@@ -55,7 +56,7 @@ const Contact = () => {
         container
         width={1}
         height={1}
-        paddingBottom={isLandscapeMobile ? 1 : 2}
+        paddingBottom={isLandscapeMobile || refInnerWidth.current < 360 ? 1 : 2}
       >
         <Grid
           item
@@ -243,7 +244,7 @@ const Contact = () => {
             // },
             gap: {
               xl: isLandscapeMobile ? 2 : 2.5,
-              lg: isLandscapeMobile ? 2 : 1.75,
+              md: isLandscapeMobile ? 2 : 1.75,
               xxs: isLandscapeMobile ? 1 : 0,
             },
           }}
@@ -300,30 +301,49 @@ const Contact = () => {
             >
               <Grid
                 item
-                height={1}
+                height={isLandscapeMobile ? 1 : "fit-content"}
                 xxs={isLandscapeMobile ? 4 : 12}
                 lg={6}
                 container
-                direction={isLandscapeMobile ? "row" : "column"}
-                overflow={isLandscapeMobile ? "auto" : "hidden"}
-                gap={1}
+                direction={
+                  isLandscapeMobile || refInnerWidth.current < 960
+                    ? "row"
+                    : "column"
+                }
+                overflow={
+                  isLandscapeMobile || refInnerWidth.current < 360
+                    ? "auto"
+                    : "hidden"
+                }
+                gap={{
+                  lg: 0,
+                  xs: isLandscapeMobile
+                    ? 1
+                    : refInnerHeight.current > 700
+                    ? 4
+                    : 1,
+                  xxs: isLandscapeMobile ? 1 : 0,
+                }}
                 onClick={handleTooltipOpen}
               >
                 {/* Pair */}
                 <Grid
                   item
-                  xxs={isLandscapeMobile ? 12 : 12}
+                  xxs={12}
                   lg={2}
                   container
                   direction={"row"}
-                  gap={1}
                 >
                   {/* Name */}
                   <Grid
                     item
-                    xxs={isLandscapeMobile ? 6 : 12}
+                    xxs={
+                      isLandscapeMobile || refInnerWidth.current < 360 ? 6 : 12
+                    }
                     lg={12}
-                    paddingRight={isLandscapeMobile ? 1 : 0}
+                    paddingRight={
+                      isLandscapeMobile || refInnerWidth.current < 360 ? 1 : 0
+                    }
                   >
                     <TextField
                       fullWidth
@@ -341,9 +361,13 @@ const Contact = () => {
                   {/* Email */}
                   <Grid
                     item
-                    xxs={isLandscapeMobile ? 6 : 12}
+                    xxs={
+                      isLandscapeMobile || refInnerWidth.current < 360 ? 6 : 12
+                    }
                     lg={12}
-                    paddingLeft={isLandscapeMobile ? 1 : 0}
+                    paddingLeft={
+                      isLandscapeMobile || refInnerWidth.current < 360 ? 1 : 0
+                    }
                   >
                     <TextField
                       fullWidth
@@ -359,7 +383,7 @@ const Contact = () => {
                 </Grid>
 
                 {/* Subject */}
-                <Grid item xxs={isLandscapeMobile ? 12 : 12} lg={1}>
+                <Grid item xxs={12} lg={1}>
                   <TextField
                     fullWidth
                     id="contactSubject"
@@ -375,17 +399,24 @@ const Contact = () => {
                 </Grid>
 
                 {/* Message */}
-                <Grid item xxs={isLandscapeMobile ? 12 : 12} lg={2}>
+                <Grid item xxs={12} lg={2}>
                   <TextField
                     fullWidth
-                    rows={isLandscapeMobile ? 2 : 4}
+                    rows={
+                      isLandscapeMobile || refInnerWidth.current < 360
+                        ? 2
+                        : refInnerWidth.current < 960 &&
+                          refInnerWidth.current > 768
+                        ? 6
+                        : 4
+                    }
                     id="contactMess"
                     label="Message"
                     multiline
                     variant="filled"
                     color="secondary"
                     inputProps={{
-                      style: { color: "black", fontSize: "12px" },
+                      style: { color: "black" },
                     }}
                   />
                 </Grid>
@@ -394,8 +425,23 @@ const Contact = () => {
           </ClickAwayListener>
 
           {/* Submit */}
-          <Grid item xxs={isLandscapeMobile ? 1 : 12} lg={1}>
-            <Button variant="contained" fullWidth>
+          <Grid
+            item
+            xxs={isLandscapeMobile ? 1 : 12}
+            lg={1}
+            paddingY={refInnerWidth.current < 360 ? "4px" : "auto"}
+          >
+            <Button
+              variant="contained"
+              fullWidth
+              sx={{
+                paddingY: {
+                  lg: 0,
+                  md: 3,
+                  xxs: "4px",
+                },
+              }}
+            >
               <span className="text-sm md:text-base">Submit</span>
             </Button>
           </Grid>

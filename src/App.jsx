@@ -7,8 +7,8 @@ function App() {
   // Cần viết theo syntax react router dom v6 để sử dụng những tính năng mới của v6
   const router = createBrowserRouter(Routers);
 
-  // AnhOctKnow #responsiveMUI #CustomBreakpoints
   return (
+    // Thêm theme cho trang web
     <ThemeProvider theme={theme}>
       <RouterProvider router={router} />
     </ThemeProvider>

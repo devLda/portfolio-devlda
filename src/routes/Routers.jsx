@@ -8,6 +8,7 @@ import { Resume } from "../pages/Resume";
 
 import { Layout } from "../components/Layout";
 import path from "../utils/path";
+import Page404 from "../pages/Page404/Page404";
 
 export const Routers = [
   {
@@ -33,6 +34,10 @@ export const Routers = [
       {
         path: `${path.CONTACT}`,
         element: <Contact />,
+      },
+      {
+        path: `*`,
+        element: <Page404 />,
       },
     ],
   },
