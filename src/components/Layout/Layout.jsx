@@ -10,25 +10,39 @@ const Layout = () => {
   // const [heightReal, setHeightReal] = useState(window.innerHeight);
   const [widthReal, setWidthReal] = useState(window.innerWidth);
   // const heightReal = useRef(window.innerHeight);
+  // useEffect(() => {
+  //   // update height
+  //   // setHeightReal(window.innerHeight);
+  //   setWidthReal(window.innerWidth);
+  //   // Kiểm tra thiết bị đăng nhập có phải mobile và nằm ngang ko
+  //   if (
+  //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
+  //       navigator.userAgent
+  //     )
+  //   ) {
+  //     console.log("mobile");
+  //     if (window.innerWidth < 768) {
+  //       if (!window.matchMedia("(orientation: portrait)").matches)
+  //         setLandscapeMobile(true);
+  //     }
+  //   }
+  //   // setLandscapeMobile(true);
+  //   // console.log(isLandscapeMobile);
+  // }, [window.innerWidth]);
+
   useEffect(() => {
-    // update height
-    // setHeightReal(window.innerHeight);
-    setWidthReal(window.innerWidth);
-    // Kiểm tra thiết bị đăng nhập có phải mobile và nằm ngang ko
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
-        navigator.userAgent
-      )
-    ) {
-      console.log("mobile");
-      if (window.innerWidth < 768) {
-        if (!window.matchMedia("(orientation: portrait)").matches)
-          setLandscapeMobile(true);
-      }
-    }
-    // setLandscapeMobile(true);
-    // console.log(isLandscapeMobile);
-  }, [window.innerWidth]);
+    console.log(
+      "matches: ",
+      window.matchMedia("(orientation: portrait)").matches
+    );
+
+    console.log("Width: ", window.innerWidth);
+    console.log("Height: ", window.innerHeight);
+
+    if (window.innerWidth < 960) {
+      setLandscapeMobile(!window.matchMedia("(orientation: portrait)").matches);
+    } else setLandscapeMobile(false);
+  }, [window.matchMedia("(orientation: portrait)").matches]);
 
   return (
     <div className="bg-amber-300 w-screen h-screen font-primary overflow-hidden">
