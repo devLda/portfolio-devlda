@@ -3,7 +3,6 @@ import { Header } from "../Header";
 import PageTransition from "../../animations/PageTransition";
 import StairEffect from "../../animations/StairEffect";
 import { useEffect, useState } from "react";
-import { useRef } from "react";
 
 const Layout = () => {
   const [isLandscapeMobile, setLandscapeMobile] = useState(false);
@@ -31,13 +30,7 @@ const Layout = () => {
   // }, [window.innerWidth]);
 
   useEffect(() => {
-    console.log(
-      "matches: ",
-      window.matchMedia("(orientation: portrait)").matches
-    );
-
-    console.log("Width: ", window.innerWidth);
-    console.log("Height: ", window.innerHeight);
+    setWidthReal(window.innerWidth)
 
     if (window.innerWidth < 960) {
       setLandscapeMobile(!window.matchMedia("(orientation: portrait)").matches);
@@ -45,7 +38,7 @@ const Layout = () => {
   }, [window.matchMedia("(orientation: portrait)").matches]);
 
   return (
-    <div className="bg-amber-300 w-screen h-screen font-primary overflow-hidden">
+    <div className="bg-amber-300 dark:bg-black dark:opacity-90 w-screen h-screen font-primary overflow-hidden">
       <Header childrenProp={{ isLandscapeMobile: isLandscapeMobile }} />
       <div
         className={`
