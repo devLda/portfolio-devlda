@@ -26,5 +26,7 @@ export default {
     },
     extend: {},
   },
+  // setup darkmode
+  darkMode: "class",
   plugins: [],
 }

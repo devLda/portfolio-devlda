@@ -3,9 +3,13 @@ import { Header } from "../Header";
 import PageTransition from "../../animations/PageTransition";
 import StairEffect from "../../animations/StairEffect";
 import { useEffect, useState } from "react";
+import { useTheme } from "@emotion/react";
 
 const Layout = () => {
   const [isLandscapeMobile, setLandscapeMobile] = useState(false);
+  
+  const themeDefault = useTheme()
+  console.log("def ", themeDefault)
   // const [heightReal, setHeightReal] = useState(window.innerHeight);
   const [widthReal, setWidthReal] = useState(window.innerWidth);
   // const heightReal = useRef(window.innerHeight);

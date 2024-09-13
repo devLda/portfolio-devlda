@@ -13,7 +13,7 @@ const Timeline = ({ childrenProp }) => {
             <h3 className="flex flex-col sm:flex-row items-start sm:items-center mb-1 text-lg font-semibold text-gray-900">
               {children?.title}
               {children?.isLastest && (
-                <span className="bg-blue-100 text-blue-800 text-sm font-medium sm:me-2 px-2.5 py-0.5 rounded sm:ms-3">
+                <span className="bg-blue-100 dark:bg-blue-200 text-blue-800 text-sm font-medium sm:me-2 px-2.5 py-0.5 rounded sm:ms-3">
                   Mới nhất
                 </span>
               )}
@@ -23,7 +23,7 @@ const Timeline = ({ childrenProp }) => {
               {children?.time}
             </time>
             {children?.describe && (
-              <p className="text-base font-normal text-yellow-500">
+              <p className="text-base font-normal text-yellow-500 dark:text-green-500">
                 Mô tả: {children?.describe}
               </p>
             )}
@@ -56,13 +56,13 @@ const Timeline = ({ childrenProp }) => {
                       <time className="block mb-2 text-sm font-normal leading-none text-gray-400">
                         {item?.time}
                       </time>
-                      <p className="mb-2 text-base font-normal text-yellow-500">
+                      <p className="mb-2 text-base font-normal text-yellow-500 dark:text-green-500">
                         <span className="mr-1 text-blue-400 text-base">
                           Mô tả:
                         </span>{" "}
                         {item?.describe}
                       </p>
-                      <p className="mb-2 text-base font-normal text-yellow-500">
+                      <p className="mb-2 text-base font-normal text-yellow-500 dark:text-green-500">
                         <span className="mr-1 text-blue-400 text-base">
                           Teamsize:
                         </span>{" "}

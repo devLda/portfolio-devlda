@@ -33,7 +33,7 @@ const Stair = () => {
               ease: "easeInOut",
               delay: timeDelay(index),
             }}
-            className="h-full w-full relative bg-amber-300 pointer-events-none"
+            className="h-full w-full relative bg-amber-300 dark:bg-blue-500 dark:opacity-90 pointer-events-none"
           ></motion.div>
         );
       })}

@@ -13,13 +13,22 @@ import { useOutletContext } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import { FaGithub } from "react-icons/fa6";
-import { useRef } from "react";
-import { useState } from "react";
+
+import { useContext, useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
+
+import { DarkmodeContext } from "../../App";
 
 const Contact = () => {
   const [isLandscapeMobile] = useOutletContext();
+  const Darkmode = useContext(DarkmodeContext);
+
   const refInnerWidth = useRef(window.innerWidth);
   const refInnerHeight = useRef(window.innerHeight);
+  const refContactName = useRef(null);
+  const refContactEmail = useRef(null);
+  const refContactPhone = useRef(null);
+  const refContactMessage = useRef(null);
 
   const [open, setOpen] = useState(false);
 
@@ -29,6 +38,30 @@ const Contact = () => {
 
   const handleTooltipOpen = () => {
     setOpen(true);
+  };
+
+  const handleSubmit = () => {
+    console.log("ref refContactName ", refContactName.current.value);
+    console.log("ref refContactEmail ", refContactEmail.current.value);
+    console.log("ref refContactPhone ", refContactPhone.current.value);
+    console.log("ref refContactMessage ", refContactMessage.current.value);
+
+    const USER_PUBLIC_KEY = "KuHyxSQrEoI-jBcgL"
+    const SERVICE_ID = "service_n0kxhku"
+    const TEMPLATE_ID = "template_6kyjwv4"
+
+    const templateParams = {
+      from_name: refContactName.current.value,
+      from_email: refContactEmail.current.value,
+      to_name: "Le Duc Anh",
+      message: refContactMessage.current.value
+    }
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_PUBLIC_KEY).then((res) => {
+      console.log('res ', res)
+    }).catch((err) => {
+      console.error("Error sending email: ", err)
+    })
   };
   return (
     <Box
@@ -114,6 +147,7 @@ const Contact = () => {
                     xxs: "h8",
                   },
                 }}
+                className="dark:text-white"
               >
                 <FaLocationDot />
               </Typography>
@@ -128,6 +162,7 @@ const Contact = () => {
                     xxs: "h8",
                   },
                 }}
+                className="dark:text-white"
               >
                 Địa chỉ: {isLandscapeMobile && <br />} Hà Nội, Việt Nam
               </Typography>
@@ -151,6 +186,7 @@ const Contact = () => {
                     xxs: "h8",
                   },
                 }}
+                className="dark:text-white"
               >
                 <IoIosMail />
               </Typography>
@@ -165,6 +201,7 @@ const Contact = () => {
                     xxs: "h8",
                   },
                 }}
+                className="dark:text-white"
               >
                 Email: {isLandscapeMobile && <br />} leducanh.mywork@gmail.com
               </Typography>
@@ -188,6 +225,7 @@ const Contact = () => {
                     xxs: "h8",
                   },
                 }}
+                className="dark:text-white"
               >
                 <FaGithub />
               </Typography>
@@ -202,6 +240,7 @@ const Contact = () => {
                     xxs: "h8",
                   },
                 }}
+                className="dark:text-white"
               >
                 <a href="https://github.com/devLda">
                   Github: {isLandscapeMobile && <br />}{" "}
@@ -227,7 +266,7 @@ const Contact = () => {
               : "row"
           }
           borderRadius={4}
-          bgcolor={amber[100]}
+          bgcolor={Darkmode?.isDark ? blue[100] : amber[100]}
           sx={{
             // flexDirection: {
             //   lg: "column",
@@ -316,7 +355,8 @@ const Contact = () => {
                     : "hidden"
                 }
                 gap={{
-                  lg: 0,
+                  xl: 2,
+                  lg: 1,
                   xs: isLandscapeMobile
                     ? 1
                     : refInnerHeight.current > 700
@@ -327,13 +367,7 @@ const Contact = () => {
                 onClick={handleTooltipOpen}
               >
                 {/* Pair */}
-                <Grid
-                  item
-                  xxs={12}
-                  lg={2}
-                  container
-                  direction={"row"}
-                >
+                <Grid item xxs={12} lg={2} container direction={"row"}>
                   {/* Name */}
                   <Grid
                     item
@@ -347,14 +381,15 @@ const Contact = () => {
                   >
                     <TextField
                       fullWidth
-                      id="contactName"
+                      inputRef={refContactName}
                       label="Tên"
                       variant="standard"
                       color="secondary"
                       // custom color trong TextField
-                      inputProps={{
+                      InputProps={{
                         style: { color: "black" },
                       }}
+                      // InputLabelProps={{ sx: { color: "#000" }}}
                     />
                   </Grid>
 
@@ -371,7 +406,7 @@ const Contact = () => {
                   >
                     <TextField
                       fullWidth
-                      id="contactEmail"
+                      inputRef={refContactEmail}
                       label="Email"
                       variant="standard"
                       color="secondary"
@@ -382,12 +417,12 @@ const Contact = () => {
                   </Grid>
                 </Grid>
 
-                {/* Subject */}
+                {/* Phone */}
                 <Grid item xxs={12} lg={1}>
                   <TextField
                     fullWidth
-                    id="contactSubject"
-                    label="Subject"
+                    inputRef={refContactPhone}
+                    label="Số điện thoại"
                     variant="standard"
                     color="secondary"
                     inputProps={{
@@ -402,6 +437,7 @@ const Contact = () => {
                 <Grid item xxs={12} lg={2}>
                   <TextField
                     fullWidth
+                    inputRef={refContactMessage}
                     rows={
                       isLandscapeMobile || refInnerWidth.current < 360
                         ? 2
@@ -410,7 +446,6 @@ const Contact = () => {
                         ? 6
                         : 4
                     }
-                    id="contactMess"
                     label="Message"
                     multiline
                     variant="filled"
@@ -436,11 +471,12 @@ const Contact = () => {
               fullWidth
               sx={{
                 paddingY: {
-                  lg: 0,
+                  lg: 1,
                   md: 3,
                   xxs: "4px",
                 },
               }}
+              onClick={handleSubmit}
             >
               <span className="text-sm md:text-base">Submit</span>
             </Button>

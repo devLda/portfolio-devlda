@@ -1,6 +1,8 @@
 import { Box, Button, Grid, styled, Typography } from "@mui/material";
 import { amber, blue, yellow } from "@mui/material/colors";
 import { useOutletContext } from "react-router-dom";
+import { DarkmodeContext } from "../../App";
+import { useContext } from "react";
 
 const Img = styled("img")({
   margin: "auto",
@@ -20,6 +22,7 @@ const ItemProject = ({ childrenProp }) => {
     mainFunction,
     technologies,
   } = childrenProp;
+  const Darkmode = useContext(DarkmodeContext);
   return (
     <Box
       width={1}
@@ -33,7 +36,7 @@ const ItemProject = ({ childrenProp }) => {
       <Grid
         container
         columns={12}
-        bgcolor={amber[100]}
+        bgcolor={Darkmode?.isDark ? blue[100] : amber[100]}
         borderRadius={4}
         sx={{
           width: 1,

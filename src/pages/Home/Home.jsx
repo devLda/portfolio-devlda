@@ -4,26 +4,27 @@ import CursorBlinker from "../../animations/CursorBlinker";
 import Avatar from "../../assets/avatar/avatar.jpg";
 import { useEffect, useRef, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import NumberCounter from "../../animations/NumberCounter";
 
 // Gom chung các component có cùng dạng về 1 Array để dễ maintance
 const aboutCareer = [
   {
-    quantity: "1.5",
+    quantity: 1.5,
     describe_1: "Năm",
     describe_2: "kinh nghiệm",
   },
   {
-    quantity: "09",
+    quantity: 9,
     describe_1: "Kỹ năng",
     describe_2: "công nghệ",
   },
   {
-    quantity: "02",
+    quantity: 2,
     describe_1: "Dự án",
     describe_2: "thực tế",
   },
   {
-    quantity: "03",
+    quantity: 3,
     describe_1: "Dự án",
     describe_2: "cá nhân",
   },
@@ -271,7 +272,8 @@ const Home = () => {
                 }
                 col-span-2 flex justify-center text-blue-500 tracking-wider`}
               >
-                {item.quantity}
+                <NumberCounter from={0} to={item.quantity} fixed={Number.isInteger(item.quantity) ? 0 : 1} />
+                {/* {item.quantity} */}
               </h3>
               <div
                 className={`

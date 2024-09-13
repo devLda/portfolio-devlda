@@ -10,7 +10,7 @@ const CardInfo = ({ childrenProp }) => {
         isLandscapeMobile ? "my-2" : "my-4 "
       } py-2 px-4 bg-blue-200 rounded-xl`}
     >
-      <Typography className="text-amber-500" sx={{
+      <Typography className="text-amber-500 dark:text-white" sx={{
         fontWeight: 500,
         fontSize: {
           md: 18,
@@ -19,7 +19,7 @@ const CardInfo = ({ childrenProp }) => {
       }}>
         {time}
       </Typography>
-      <Typography className="text-white" sx={{
+      <Typography className="text-white dark:text-green-500" sx={{
         fontWeight: 500,
         fontSize: {
           md: 28,

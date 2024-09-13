@@ -11,7 +11,7 @@ import { DarkmodeContext } from "../../App.jsx";
 const Header = ({ childrenProp }) => {
   const { isLandscapeMobile } = childrenProp;
   const Darkmode = useContext(DarkmodeContext);
-  console.log("isDark: ", Darkmode);
+  // console.log("isDark: ", Darkmode);
   return (
     <header
       className={` 
@@ -50,7 +50,8 @@ const Header = ({ childrenProp }) => {
             }}
           >
             {/* styled component vẫn bao gồm những default prop */}
-            <DarkModeBuuton defaultChecked={Darkmode?.isDark} />
+            {/* sử dụng "checked" thay vì "defaultChecked" */}
+            <DarkModeBuuton checked={Darkmode?.isDark} />
           </motion.div>
         </div>
       </div>

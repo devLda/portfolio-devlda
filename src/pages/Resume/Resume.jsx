@@ -196,7 +196,7 @@ export default function Resume() {
           }}
           className={`
             ${isLandscapeMobile ? "py-1 ml-2 px-1" : "pt-4 pb-8"}
-          w-full h-full container flex justify-between items-center bg-amber-100`}
+          w-full h-full container flex justify-between items-center bg-amber-100 dark:bg-blue-100`}
         >
           {componentResume.map((item) => {
             return (

@@ -2,12 +2,12 @@ import { createTheme } from "@mui/material";
 import { amber, blue, yellow } from "@mui/material/colors";
 
 // kiểm tra system có bật darkmode
-function getModeOnSystem() {
-  return (
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
-}
+// function getModeOnSystem() {
+//   return (
+//     window.matchMedia &&
+//     window.matchMedia("(prefers-color-scheme: dark)").matches
+//   );
+// }
 
 // const theme = createTheme({
 //   breakpoints: {
@@ -143,20 +143,21 @@ const theme = {
   },
 
   // Chỉnh sửa màu
-  palette: {
-    text: {
-      primary: "#fff",
-      secondary: blue[400],
-    },
-    primary: {
-      main: amber[300],
-      light: "#fff",
-    },
-    secondary: {
-      main: blue[400],
-    },
-    mode: getModeOnSystem() ? "dark" : "light"
-  },
+  // palette: {
+  //   text: {
+  //     primary: "#fff",
+  //     secondary: blue[400],
+  //   },
+  //   primary: {
+  //     main: amber[300],
+  //     light: "#fff",
+  //   },
+  //   secondary: {
+  //     main: blue[400],
+  //     dark: "#000"
+  //   },
+  //   mode: getModeOnSystem() ? "dark" : "light"
+  // },
 };
 
 export default theme;

@@ -5,8 +5,9 @@ import {
   FaReact,
   FaGithub,
 } from "react-icons/fa";
-import { SiTypescript, SiTailwindcss, SiRedux } from "react-icons/si";
-import RestApi from "../assets/RestApi.png";
+import { SiTypescript, SiTailwindcss, SiRedux, SiMui } from "react-icons/si";
+import RestApi from "../assets/skills/RestApi.png";
+import Figma from "../assets/skills/Figma.png";
 
 const listSkill = [
   {
@@ -55,6 +56,20 @@ const listSkill = [
   {
     image: <FaGithub className="text-black" size={100} />,
     title: "Git",
+  },
+  {
+    image: (
+      <img
+        src={Figma}
+        alt="Figma"
+        className="h-16 w-20 scale-125 my-4 mx-1"
+      />
+    ),
+    title: "Figma",
+  },
+  {
+    image: <SiMui className="text-blue-600" size={100} />,
+    title: "Material UI",
   },
 ];
 

@@ -39,7 +39,7 @@ const Skills = () => {
                         },
                       }}
                     >
-                      <p className="text-slate-600 flex justify-center">
+                      <p className="flex justify-center">
                         {skill.image}
                       </p>
                       <Typography
@@ -49,7 +49,7 @@ const Skills = () => {
                         justifyContent={"center"}
                         alignItems={"center"}
                         color={"black"}
-                        className="text-4xl"
+                        className="text-4xl text-slate-600 dark:text-white"
                       >
                         {skill.title}
                       </Typography>
